@@ -2,10 +2,14 @@
   --font-head: Montserrat, Helvetica, sans-serif;
   --font-main: Montserrat, Helvetica, sans-serif;
 
-  --colour-accent: #000000;
-  --colour-base: #000000;
-  --colour-background: #000000;
-  --colour-text: #000000;
+  --colour-accent: #a02929;
+  --colour-base: #28292c;
+  --colour-background: #28292c;
+  --colour-text: #fefefe;
+
+  --colour-accent-hover: rgba(160, 41, 41, 0.5);
+  --colour-base-hover: rgba(40, 41, 44, 0.3);
+  --colour-text-hover: rgba(254, 254, 254, 0.5);
 }
 
 * {
