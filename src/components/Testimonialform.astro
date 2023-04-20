@@ -1,0 +1,44 @@
+---
+
+---
+<section>
+<img src="../../public/img/forms_dukke.webp" alt="creepy doll">
+<form>
+    <!-- Formular-indhold -->
+      <label for="yourname">Navn</label>
+      <input id="name" placeholder="Fx Thomas Skeleton..." name="yourname" type="text" />
+
+      <label for="titel">Navnet på slikket</label>
+      <input id="titel" placeholder="Skriv titel til oplevelsen..." name="titel" type="text" />
+
+      <label for="besked"
+        ><textarea name="besked" id="besked" placeholder="Skriv anmeldelse her..." cols="30" rows="5"></textarea>
+      </label>
+
+      <button>Send besked</button>
+  </form>
+</section>
+
+<style>
+section{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ width: 1148px;
+}
+
+img{
+ max-width: 100%;
+ border-radius: 20px 0 0 20px;
+}
+form{
+ grid-column: 2/3;
+ display: grid;
+ grid-template-columns: 1fr;
+ background-color: var(--colour-text);
+ grid-template-rows: repeat(4, 1fr);
+ border-radius: 0 20px 20px 0;
+}
+form label, form input{
+    color: var(--colour-base);
+}
+</style>
