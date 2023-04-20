@@ -1,4 +1,103 @@
 ---
 ---
 
-<footer></footer>
+<footer>
+  <div class="FooterImage">
+    <div class="FooterContent">
+      <div class="FooterSocials">
+        <a href="/"><img src="../icons/fb_icon.svg" /></a>
+        <a href="/"><img src="../icons/email_icon.svg" /></a>
+      </div>
+      <div class="FooterCards">
+        <div class="FooterCard1">
+          <a href="/"><img src="../icons/fb_icon.svg" /></a>
+          <div class="MailCont">
+            <p>info@royalescapes.dk</p>
+          </div>
+        </div>
+        <div class="FooterCard2">
+          <a href="/"><img src="../icons/fb_icon.svg" /></a>
+          <div class="LocationCont">
+            <p>Royal Escapes, København K, Fredericiagade 30, 1310 København</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="FooterRights">
+      <p>Copyright Royal Escapes 2021 © All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  * {
+  }
+
+  body {
+  }
+
+  .FooterImage {
+    background-image: url(../images/footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+  }
+
+  .FooterContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem;
+  }
+
+  .FooterRights {
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .FooterSocials {
+    display: flex;
+    justify-content: space-between;
+    width: 10rem;
+    margin-bottom: 2rem;
+  }
+
+  .FooterCards {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .FooterCard1 {
+    background-color: var(--colour-text);
+    padding: 2rem;
+    width: 20rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .FooterCard2 {
+    background-color: var(--colour-text);
+    padding: 2rem;
+    width: 20rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .MailCont p {
+    color: black;
+    display: flex;
+    justify-content: center;
+  }
+
+  .LocationCont p {
+    color: black;
+    display: flex;
+    justify-content: center;
+  }
+</style>
