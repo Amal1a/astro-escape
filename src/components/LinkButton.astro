@@ -2,38 +2,36 @@
 const { variant, link } = Astro.props;
 ---
 
-<!-- Indsæt variant prop - primary, secondary eller tertiary  -->
-<!-- Indsæt href ved brug af link prop  -->
-
+<!-- Indsæt variant prop - primary, secondary eller tertiary  --><!-- Indsæt href ved brug af link prop  -->
 <button class={variant}>
-    <a href={link} target="_blank"><slot /></a>
+  <a href={link} target="_blank"><slot /></a>
 </button>
 
 <style>
-a{
+  a {
     text-decoration: none;
-}
-.primary{
+  }
+  .primary {
     width: 10rem;
     padding: 1rem 1.3rem 1rem 1.3rem;
-    background-color:var(--colour-accent);
+    background-color: var(--colour-accent);
     color: var(--colour-text);
-}
-.primary:hover{
+  }
+  .primary:hover {
     background-color: var(--colour-accent-hover);
-}
+  }
 
-.secondary{
+  .secondary {
     width: 10rem;
     padding: 1rem 1.3rem 1rem 1.3rem;
-    background-color:var(--colour-base);
+    background-color: var(--colour-base);
     color: var(--colour-text);
-}
-.secondary:hover{
+  }
+  .secondary:hover {
     background-color: var(--colour-base-hover);
-}
+  }
 
-.tertiary {
+  .tertiary {
     width: 10rem;
     border-style: solid;
     border-width: 1px;
@@ -41,10 +39,10 @@ a{
     padding: 1rem 1.3rem 1rem 1.3rem;
     background-color: transparent;
   }
-  .tertiary a{
+  .tertiary a {
     color: var(--colour-base);
   }
   .tertiary:hover {
-   background-color: var(--colour-base-hover);
+    background-color: var(--colour-base-hover);
   }
 </style>
