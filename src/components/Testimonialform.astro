@@ -1,5 +1,5 @@
 ---
-
+import Buttons from "./Buttons.astro";
 ---
 <section>
 <img src="../../public/img/forms_dukke.webp" alt="creepy doll">
@@ -8,14 +8,14 @@
       <label for="yourname">Navn</label>
       <input id="name" placeholder="Fx Thomas Skeleton..." name="yourname" type="text" />
 
-      <label for="titel">Navnet på slikket</label>
+      <label for="titel">Titel</label>
       <input id="titel" placeholder="Skriv titel til oplevelsen..." name="titel" type="text" />
 
       <label for="besked"
         ><textarea name="besked" id="besked" placeholder="Skriv anmeldelse her..." cols="30" rows="5"></textarea>
       </label>
 
-      <button>Send besked</button>
+      <Buttons variant="primary" link="" leadto="_self">Send besked</Buttons>
   </form>
 </section>
 
