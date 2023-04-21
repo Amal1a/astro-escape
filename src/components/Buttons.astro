@@ -1,0 +1,34 @@
+---
+const { variant, link, leadto } = Astro.props;
+---
+
+<!-- Indsæt variant prop - primary, secondary eller tertiary  -->
+<!-- Indsæt href ved brug af link prop  -->
+
+<button class={variant}>
+    <a href={link} target={leadto}><slot /></a>
+</button>
+
+<style>
+a{
+    text-decoration: none;
+}
+.primary{
+    width: 10rem;
+    padding: 1rem 1.3rem 1rem 1.3rem;
+    background-color:var(--colour-accent);
+    color: var(--colour-text);
+}
+.primary:hover{
+    background-color: var(--colour-accent-hover);
+}
+
+.secondary{
+    width: 10rem;
+    padding: 1rem 1.3rem 1rem 1.3rem;
+    background-color:var(--colour-base);
+    color: var(--colour-text);
+}
+.secondary:hover{
+    background-color: var(--colour-base-hover);
+}

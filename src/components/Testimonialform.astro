@@ -1,0 +1,108 @@
+---
+import Buttons from "./Buttons.astro";
+---
+<div class="formcenter">
+<section>
+<!-- <img src="../../public/img/forms_dukke.webp" alt="creepy doll"> -->
+<div id="image">
+    <img src="/svg/LogoEscape.svg" alt="Royal Escape logo" id="logo">
+</div>
+<form>
+    <!-- Formular-indhold -->
+      <label for="yourname"><strong>Navn</strong></label>
+      <input id="name" placeholder="Fx Thomas Skeleton..." name="yourname" type="text" />
+
+      <label for="titel"><strong>Titel</strong></label>
+      <input id="titel" placeholder="Skriv titel til oplevelsen..." name="titel" type="text" />
+
+      <label for="besked">
+        <textarea name="besked" id="besked" placeholder="Skriv anmeldelse her..." cols="30" rows="5"></textarea>
+      </label>
+
+      <img src="../../public/img/Stjerner.svg" alt="ratings">
+
+      <div id="button">
+      <Buttons variant="primary" link="" leadto="_self" >Send besked</Buttons>
+      </div>
+  </form>
+</section>
+</div>
+
+<style>
+.formcenter{
+    display: flex;
+    justify-content: center;
+}
+section{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ /* width: 1148px; */
+ width: 71.75rem;
+ height: 95vh;
+}
+
+/* img{
+ width: 100%;
+ max-height: 100%;
+ border-radius: 20px 0 0 20px;
+} */
+
+#image{
+    background-image: url("/img/forms_dukke_3.webp");
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 0 0 20px;
+    justify-self: center;
+    display: grid;
+}
+#logo{
+    justify-self: center;
+    align-self: end;
+}
+form{
+height: 100%;
+ grid-column: 2/3;
+ display: grid;
+ grid-template-columns: 1fr;
+ background-color: var(--colour-text);
+ grid-template-rows: repeat(4, 1fr);
+ border-radius: 0 20px 20px 0;
+ width: 100%;
+padding: 4rem;
+}
+strong{
+    color: var(--colour-base);
+}
+
+form label, form input{
+    color: var(--colour-base);
+}
+#name{
+    text-decoration: underline;
+    height: 24px;
+    color: var(--colour-base-hover);
+}
+#titel{
+    text-decoration: underline;
+    height: 24px;
+    color: var(--colour-base-hover);
+}
+#besked{
+    text-decoration: underline;
+    height: 347px;
+    width: 430px;
+    color: var(--colour-base-hover);
+    border: solid var(--colour-base-hover) 2px;
+    border-radius: 20px;
+    padding: 10px;
+}
+img{
+    justify-self: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#button{
+    justify-self: center;
+}
+
+</style>
