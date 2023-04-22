@@ -1,0 +1,39 @@
+---
+const {data} = Astro.props;
+console.log(data);
+
+---
+
+<div class="testimonialcard">
+    <h2 class="titel">{data.title}</h2>
+    <p class="review">{data.description}</p>
+    <p class="name">{data.name}</p>
+    <div class="stars">{data.stars}</div>
+</div>
+
+<script>
+
+</script>
+
+<style>
+.testimonialcard{
+   background-color: var(--colour-text);
+   margin: 50px; 
+}
+
+.titel{
+    color: var(--colour-base);
+}
+
+.review{
+    color: var(--colour-base);
+}
+
+.name{
+    color: var(--colour-base);
+}
+
+
+
+
+</style>

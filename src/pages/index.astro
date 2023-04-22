@@ -2,6 +2,22 @@
 import Testimonialform from "../components/Testimonialform.astro";
 import Buttons from "../components/Buttons.astro";
 import "../style/styleCSS.css";
+import Testimonials from "../components/Testimonials.astro";
+
+const data = await fetch(
+  "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials",
+  {
+    method:"GET",
+    headers:{
+      apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk"
+    }
+  }
+).then((res)=>res.json());
+
+
+
+
 ---
 
 <html lang="en">
@@ -14,6 +30,14 @@ import "../style/styleCSS.css";
   </head>
   <body>
     <h1>Astro hej hej test</h1>
+
+    <section class="testimonials">
+      {
+        data.map((testimonial)=>{
+          return <Testimonials data={testimonial}/>;
+        })
+      }
+    </section>
   </body>
 </html>
 
