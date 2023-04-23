@@ -1,0 +1,45 @@
+---
+import Testimonial from "./Testimonial.astro";
+
+import "../style/testimonials.css";
+
+const data = await fetch(
+  "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials",
+  {
+    method:"GET",
+    headers:{
+      apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk"
+    }
+  }
+).then((res)=>res.json());
+
+---
+<!-- <section class="testimonial-row">
+<section class="testimonials">
+    {
+      data.map((testimonial)=>{
+        return <Testimonial data={testimonial}/>;
+      })
+    }
+  </section>
+</section> -->
+
+<section>
+    <div class="carousel">
+            {
+              data.map((testimonial)=>{
+                return <Testimonial data={testimonial}/>;
+              })
+            }
+        <button class="prev-button">&#8249;</button>
+        <button class="next-button">&#8250;</button>
+    </div>
+</section>
+
+<style>
+section{
+    display: grid;
+    justify-content: center;
+}
+</style>

@@ -1,0 +1,60 @@
+---
+const {data} = Astro.props;
+console.log(data);
+---
+
+<div class="slide">
+<div class="testimonialcard content">
+    <h2 class="titel">{data.title}</h2>
+    <p class="review">{data.description}</p>
+    <p class="name">- {data.name}</p>
+    <div class="fivestars">{data.stars}</div>
+</div>
+</div>
+
+<script>
+
+</script>
+
+
+<style>
+
+
+.testimonialcard{
+   background-color: var(--colour-text);
+   /* margin: 50px;  */
+   width: 400px;
+   padding: 2rem;
+  height: 100%;
+
+}
+
+.titel{
+    color: var(--colour-base);
+}
+
+.review{
+    color: var(--colour-base);
+    width: 30ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.name{
+    color: var(--colour-base);
+}
+
+/* .stars{
+    height: 100px;
+    width: 50px;  
+} */
+.fivestars{
+    height: 45px;
+    width: 100%;
+    background-image: url("../img/femstjerner.svg");
+    background-repeat: no-repeat;
+    width: 245px;
+}
+
+</style>
