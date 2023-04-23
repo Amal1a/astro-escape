@@ -1,5 +1,5 @@
 :root {
-  --font-head: Montserrat, Helvetica, sans-serif;
+  --font-head: "Dosis", Helvetica, sans-serif;
   --font-main: Montserrat, Helvetica, sans-serif;
 
   --colour-accent: #a02929;
@@ -38,4 +38,19 @@ body {
 
   justify-content: center;
   align-items: center;
+}
+
+h1 {
+  font-size: 56px;
+  font-family: var(--font-head);
+}
+
+h2 {
+  font-size: 36px;
+  font-family: var(--font-head);
+}
+
+p {
+  font-size: 24px;
+  font-family: var(--font-main);
 }

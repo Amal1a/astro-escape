@@ -1,6 +1,10 @@
 ---
 import Testimonialform from "../components/Testimonialform.astro";
 import Buttons from "../components/Buttons.astro";
+import Header from "../components/Header.astro";
+import Video from "../components/Video.astro";
+import Footer from "../components/Footer.astro";
+const { variant, link, leadto } = Astro.props;
 import "../style/styleCSS.css";
 ---
 
@@ -10,11 +14,132 @@ import "../style/styleCSS.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis"
+      rel="stylesheet"
+    />
+    <title>Playroom</title>
   </head>
   <body>
-    <h1>Astro hej hej test</h1>
-  </body>
-</html>
+    <Header />
 
-<style></style>
+    <!-- FrontPage [Gif Background Part]  -->
+    <div class="FrontPage">
+      <div class="FrontPageContent">
+        <div class="FrontPageLogo">
+          <img class="FrontPageSVG" src="/svg/Playroom.svg" alt="" />
+        </div>
+        <div class="FrontPageButton">
+          <Buttons variant="primary">Book Nu!</Buttons>
+        </div>
+      </div>
+    </div>
+
+    <!-- FrontVideo [Video Part]  -->
+
+    <div class="FrontVideoPage">
+      <div class="FrontVideoContent">
+        <div class="FrontVideoHero">
+          <h1>THIS IS A VIDEO!</h1>
+        </div>
+        <div class="FrontVideoVideo">
+          <Video />
+        </div>
+        <div class="FrontVideoBread">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+        <div class="FrontVideoButton">
+          <Buttons variant="primary">Book Nu!</Buttons>
+        </div>
+      </div>
+    </div>
+
+    <div class="FrontTestPage">
+      <div class="FrontTestContent">
+        <div class="FrontTestHero">
+          <h2>THIS IS A TESTIMONIAL!</h2>
+        </div>
+        <div class="FrontTestTest">
+          <!-- PLACERHOLDER TIL CAROUSEL | Pop-Up Tutorial https://www.w3schools.com/howto/howto_js_popup_form.asp  -->
+          <Testimonialform />
+        </div>
+        <div class="FrontTestBread">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </div>
+        <div class="FrontTestButton">
+          <Buttons variant="primary">Skriv Anmeldese</Buttons>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+    <!-- FrontVideo [Video Part]  -->
+  </body>
+
+  <style>
+    body {
+      background-image: url("http://i.stack.imgur.com/kx8MT.gif");
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding: 0;
+      margin: 0;
+    }
+
+    .FrontPage {
+      height: 100vh;
+    }
+
+    .FrontPageContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .FrontPageLogo {
+      padding: 2.5rem;
+    }
+
+    .FrontVideoContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem;
+    }
+
+    .FrontVideoBread {
+      max-width: 75rem;
+    }
+
+    .FrontTestContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem;
+    }
+
+    .FrontTestBread {
+      max-width: 75rem;
+    }
+  </style>
+</html>
