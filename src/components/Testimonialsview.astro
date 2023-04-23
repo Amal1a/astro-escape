@@ -35,11 +35,41 @@ const data = await fetch(
         <button class="prev-button">&#8249;</button>
         <button class="next-button">&#8250;</button>
     </div>
+    <div class="ratings">
+        <div class="google">
+            <img src="../img/googlestars.svg" alt="google ratings">
+            <p>Google</p>
+        </div>
+        <div class="tripadvisor">
+            <img src="../img/tripadvisorstars.svg" alt="Tripadvisor ratings">
+            <p>Tripadvisor</p>
+        </div>
+        <div class="trustpilot">
+            <img src="../img/trustpilotstars.svg" alt="Trustpilot ratings">
+            <p>Trustpilot</p>
+        </div>
+    </div>
 </section>
 
 <style>
 section{
     display: grid;
     justify-content: center;
+}
+
+.ratings{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.google, .tripadvisor, .trustpilot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.google img, .google p, .tripadvisor img, .tripadvisor p, .trustpilot img, .trustpilot p{
+    align-self: center;
 }
 </style>
