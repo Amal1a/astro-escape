@@ -1,15 +1,17 @@
 ---
 const {data} = Astro.props;
-console.log(data);
+// console.log(data);
 ---
 
 <div class="slide">
-<div class="testimonialcard content">
-    <h2 class="titel">{data.title}</h2>
-    <p class="review">{data.description}</p>
-    <p class="name">- {data.name}</p>
-    <div class="fivestars">{data.stars}</div>
-</div>
+ <a href={`testimonial/${data.slug}`}>
+   <div class="testimonialcard content">
+      <h2 class="titel">{data.title}</h2>
+      <p class="review">{data.description}</p>
+      <p class="name">- {data.name}</p>
+    <div class="fivestars"></div>
+   </div>
+</a>
 </div>
 
 <script>
@@ -26,7 +28,9 @@ console.log(data);
    width: 400px;
    padding: 2rem;
   height: 100%;
-
+}
+.testimonialcard:hover{
+    transform: scale(1.1);
 }
 
 .titel{
@@ -35,10 +39,10 @@ console.log(data);
 
 .review{
     color: var(--colour-base);
-    width: 30ch;
+    /* width: 30ch;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
 }
 
 .name{
