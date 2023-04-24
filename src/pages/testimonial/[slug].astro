@@ -1,0 +1,123 @@
+---
+import "../../style/styleCSS.css";
+import Header from "../../components/Header.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch("https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials",{
+    method:"GET",
+    headers:{
+      apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk"
+    }
+  }).then((response) => response.json());
+ 
+  return data.map((testimonial) => {
+    return {
+      params: { slug: testimonial.slug },
+      props: { myData: testimonial },
+    };
+  });
+}
+const { myData } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{myData.title}</title>
+  </head>
+  <body>
+    <Header/>
+    <main>
+    <section class="singleview">
+        <a class="back" href="/">
+            <img src="../../img/tilbage_arrow.svg" alt="Tilbage pil">
+            <p>Tilbage</p>
+        </a>
+        <div class="testimonialcard">
+            <h2 class="titel">{myData.title}</h2>
+            <p class="review">{myData.description}</p>
+            <p class="name">- {myData.name}</p>
+            <div class="fivestars"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+
+<style>
+main{
+   display: grid;
+   justify-content: center;
+   align-content: center;
+   /* height: 80vh; */
+   width: 100%;
+}
+
+.back{
+   display: flex;
+   align-self: start;
+   margin-bottom: 1rem;
+}
+
+.singleview{
+   display: flex;
+   flex-direction: column;
+   /* width: 50rem; */
+   justify-content: center;
+   align-items: center;
+}
+
+.testimonialcard{
+   /* background-color: var(--colour-text); */
+   background-image: url("../img/singleview_testimonial_bg.jpg");
+   /* margin: 50px;  */
+   padding: 2rem;
+   background-size: cover;
+   width: 800px;
+   height: 400px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+.titel{
+    color: var(--colour-text);
+}
+
+.review{
+    color: var(--colour-text);
+}
+
+.name{
+    color: var(--colour-text);
+}
+.fivestars{
+    height: 45px;
+    width: 100%;
+    background-image: url("../img/femstjerner.svg");
+    background-repeat: no-repeat;
+    width: 245px;
+}
+
+/* Mobileview */
+@media (max-width: 600px) {
+  .singleview{
+   width: 100%;
+   margin-top: 1rem;
+}
+main{
+  /* height: 80vh; */
+}
+.back{
+  align-self: center;
+}
+.testimonialcard{
+  width: 100%;
+}
+}
+   </style>

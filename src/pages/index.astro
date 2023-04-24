@@ -6,6 +6,12 @@ import Video from "../components/Video.astro";
 import Footer from "../components/Footer.astro";
 const { variant, link, leadto } = Astro.props;
 import "../style/styleCSS.css";
+import Testimonialsview from "../components/Testimonialsview.astro";
+
+
+
+
+
 ---
 
 <html lang="en">
@@ -83,7 +89,7 @@ import "../style/styleCSS.css";
         </div>
         <div class="FrontTestTest">
           <!-- PLACERHOLDER TIL CAROUSEL | Pop-Up Tutorial https://www.w3schools.com/howto/howto_js_popup_form.asp  -->
-          <Testimonialform />
+          <Testimonialsview />
         </div>
         <div class="FrontTestBread">
           <p>
@@ -102,6 +108,8 @@ import "../style/styleCSS.css";
     <Footer />
     <!-- FrontVideo [Video Part]  -->
   </body>
+  <script src="../js/carousel.js"></script>
+  </html>
 
   <style>
     body {
@@ -154,4 +162,5 @@ import "../style/styleCSS.css";
       max-width: 75rem;
     }
   </style>
-</html>
+
+

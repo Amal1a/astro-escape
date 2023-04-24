@@ -1,0 +1,82 @@
+---
+const {data} = Astro.props;
+---
+
+<div class="slide">
+ <a href={`testimonial/${data.slug}`}>
+   <div class="testimonialcard content">
+      <h3 class="titel">{data.title}</h3>
+      <p class="review">{data.description}</p>
+      <p class="name">- {data.name}</p>
+      <!-- <div class="accepted">{data.accepted}</div> -->
+      <div class="fivestars"></div>
+   </div>
+</a>
+</div>
+
+<script>
+
+</script>
+
+
+<style>
+.hide{
+    display: none;
+}
+
+/* .accepted{
+    color: hotpink;
+    height: 10%;
+width: 100%;
+} */
+
+p{
+    font-size: small;
+}
+.testimonialcard{
+   background-color: var(--colour-text);
+   /* margin: 50px;  */
+   width: 400px;
+   padding: 2rem;
+  height: 100%;
+}
+.testimonialcard:hover{
+    transform: scale(1.04);
+}
+
+.titel{
+    color: var(--colour-base);
+}
+
+.review{
+    color: var(--colour-base);
+    /* width: 30ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+}
+
+.name{
+    color: var(--colour-base);
+}
+
+/* .stars{
+    height: 100px;
+    width: 50px;  
+} */
+.fivestars{
+    height: 45px;
+    width: 100%;
+    background-image: url("../img/femstjerner.svg");
+    background-repeat: no-repeat;
+    width: 245px;
+}
+
+
+@media (max-width: 600px) {
+    .testimonialcard:hover{
+    transform: scale(1);
+}
+}
+
+</style>

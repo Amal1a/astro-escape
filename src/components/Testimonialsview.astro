@@ -1,0 +1,94 @@
+---
+import Testimonial from "./Testimonial.astro";
+
+import "../style/testimonials.css";
+
+const data = await fetch(
+  "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials",
+  {
+    method:"GET",
+    headers:{
+      apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk"
+    }
+  }
+).then((res)=>res.json());
+
+console.log(data);
+---
+
+<section>
+    <div class="carousel">
+            {
+              data.map((testimonial)=>{
+                return <Testimonial data={testimonial}/>;
+              })
+            }
+        <button class="prev-button">&#8249;</button>
+        <button class="next-button">&#8250;</button>
+    </div>
+    <div class="ratings">
+        <div class="google">
+            <img src="../img/googlestars.svg" alt="google ratings">
+            <p>Google</p>
+        </div>
+        <div class="tripadvisor">
+            <img src="../img/tripadvisorstars.svg" alt="Tripadvisor ratings">
+            <p>Tripadvisor</p>
+        </div>
+        <div class="trustpilot">
+            <img src="../img/trustpilotstars.svg" alt="Trustpilot ratings">
+            <p>Trustpilot</p>
+        </div>
+    </div>
+</section>
+
+<style>
+section{
+    display: grid;
+    justify-content: center;
+}
+
+/* .review{
+    width: 30ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+} */
+
+.ratings{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    margin-top: 2rem;
+width: 50rem;
+}
+
+.google, .tripadvisor, .trustpilot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.google img, .google p, .tripadvisor img, .tripadvisor p, .trustpilot img, .trustpilot p{
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+.ratings{
+    width: 100%;
+}
+.tripadvisor {
+grid-column: 3/4;
+grid-row: 2/3;
+}
+.trustpilot {
+grid-column: 1/2;
+grid-row: 2/3;
+}
+.google {
+grid-column: 2/3;
+grid-row: 1/2;
+}
+}
+</style>
