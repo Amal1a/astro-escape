@@ -8,7 +8,8 @@ const {data} = Astro.props;
       <h2 class="titel">{data.title}</h2>
       <p class="review">{data.description}</p>
       <p class="name">- {data.name}</p>
-    <div class="fivestars"></div>
+      <!-- <div class="accepted">{data.accepted}</div> -->
+      <div class="fivestars"></div>
    </div>
 </a>
 </div>
@@ -19,7 +20,15 @@ const {data} = Astro.props;
 
 
 <style>
+.hide{
+    display: none;
+}
 
+/* .accepted{
+    color: hotpink;
+    height: 10%;
+width: 100%;
+} */
 
 .testimonialcard{
    background-color: var(--colour-text);
