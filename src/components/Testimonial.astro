@@ -1,6 +1,5 @@
 ---
 const {data} = Astro.props;
-// console.log(data);
 ---
 
 <div class="slide">
@@ -30,7 +29,7 @@ const {data} = Astro.props;
   height: 100%;
 }
 .testimonialcard:hover{
-    transform: scale(1.1);
+    transform: scale(1.04);
 }
 
 .titel{
@@ -59,6 +58,13 @@ const {data} = Astro.props;
     background-image: url("../img/femstjerner.svg");
     background-repeat: no-repeat;
     width: 245px;
+}
+
+
+@media (max-width: 600px) {
+    .testimonialcard:hover{
+    transform: scale(1);
+}
 }
 
 </style>

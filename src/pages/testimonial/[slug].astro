@@ -19,8 +19,6 @@ export async function getStaticPaths() {
   });
 }
 const { myData } = Astro.props;
-
-console.log(myData)
 ---
 <html lang="en">
   <head>
@@ -55,7 +53,8 @@ main{
    display: grid;
    justify-content: center;
    align-content: center;
-   height: 80vh;
+   /* height: 80vh; */
+   width: 100%;
 }
 
 .back{
@@ -67,7 +66,7 @@ main{
 .singleview{
    display: flex;
    flex-direction: column;
-   width: 50rem;
+   /* width: 50rem; */
    justify-content: center;
    align-items: center;
 }
@@ -92,26 +91,34 @@ main{
 
 .review{
     color: var(--colour-text);
-    /* width: 30ch;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; */
 }
 
 .name{
     color: var(--colour-text);
 }
-
-/* .stars{
-    height: 100px;
-    width: 50px;  
-} */
 .fivestars{
     height: 45px;
     width: 100%;
     background-image: url("../img/femstjerner.svg");
     background-repeat: no-repeat;
     width: 245px;
+}
+
+/* Mobileview */
+@media (max-width: 600px) {
+  .singleview{
+   width: 100%;
+   margin-top: 1rem;
+}
+main{
+  /* height: 80vh; */
+}
+.back{
+  align-self: center;
+}
+.testimonialcard{
+  width: 100%;
+}
 }
 
    </style>

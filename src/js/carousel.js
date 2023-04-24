@@ -6,8 +6,6 @@ const nextButton = carousel.querySelector(".next-button");
 let currentSlide = 0;
 
 function showSlide(n) {
-  console.log("hallo?");
-
   slides[currentSlide].classList.remove("active");
   currentSlide = (n + slides.length) % slides.length;
   slides[currentSlide].classList.add("active");

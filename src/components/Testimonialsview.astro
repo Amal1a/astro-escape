@@ -15,15 +15,6 @@ const data = await fetch(
 ).then((res)=>res.json());
 
 ---
-<!-- <section class="testimonial-row">
-<section class="testimonials">
-    {
-      data.map((testimonial)=>{
-        return <Testimonial data={testimonial}/>;
-      })
-    }
-  </section>
-</section> -->
 
 <section>
     <div class="carousel">
@@ -68,6 +59,8 @@ section{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
+    margin-top: 2rem;
+width: 50rem;
 }
 
 .google, .tripadvisor, .trustpilot{
@@ -78,5 +71,23 @@ section{
 
 .google img, .google p, .tripadvisor img, .tripadvisor p, .trustpilot img, .trustpilot p{
     align-self: center;
+}
+
+@media (max-width: 600px) {
+.ratings{
+    width: 100%;
+}
+.tripadvisor {
+grid-column: 3/4;
+grid-row: 2/3;
+}
+.trustpilot {
+grid-column: 1/2;
+grid-row: 2/3;
+}
+.google {
+grid-column: 2/3;
+grid-row: 1/2;
+}
 }
 </style>
