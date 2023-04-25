@@ -40,6 +40,8 @@
     background-image: url(../images/footer.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     object-fit: cover;
   }
 
@@ -68,8 +70,19 @@
 
   .FooterCards {
     display: flex;
-    flex-direction: row;
     gap: 4rem;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .FooterCards {
+      flex-direction: row;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .FooterCards {
+      flex-direction: column;
+    }
   }
 
   .FooterCard1 {
