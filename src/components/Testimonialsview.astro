@@ -4,7 +4,7 @@ import Testimonial from "./Testimonial.astro";
 import "../style/testimonials.css";
 
 const data = await fetch(
-  "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials",
+  "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials?accepted=eq.true",
   {
     method:"GET",
     headers:{
