@@ -55,33 +55,37 @@ import Buttons from "./Buttons.astro";
     "Content-Type": "application/json",
     Prefer: "return=minimal",
   };
+
   const url =
     "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials";
 
-  function addTestimonial(newTestimonial) {
+  async function addTestimonial(newTestimonial: {
+    name: string;
+    title: string;
+    description: string;
+  }) {
     const options = {
       method: "POST",
       headers: headers,
       body: JSON.stringify(newTestimonial),
     };
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data:", data);
-        window.location.href = "/Testimonialfeedback";
-      });
+
+    await fetch(url, options);
+
+    window.location.replace("/Testimonialfeedback");
   }
 
   const form = document.querySelector("form");
-  console.log("form.elements", form.elements);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const val = (i: number) => (form.elements[i] as HTMLInputElement).value;
+
     const obj = {
-      name: form.elements.name.value,
-      title: form.elements.titel.value,
-      description: form.elements.besked.value,
+      name: val(0),
+      title: val(1),
+      description: val(2),
     };
 
     addTestimonial(obj);
@@ -101,24 +105,24 @@ import Buttons from "./Buttons.astro";
     height: 95vh;
   }
 
-  /* img{
- width: 100%;
- max-height: 100%;
- border-radius: 20px 0 0 20px;
-} */
-
   #image {
     background-image: url("/img/forms_dukke_3.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
-    border-radius: 20px 0 0 20px;
+    border-radius: 30px 0 0 30px;
     justify-self: center;
     display: grid;
   }
+
   #logo {
     justify-self: center;
+    height: 33%;
     align-self: end;
   }
+
   form {
     height: 100%;
     grid-column: 2/3;
@@ -138,16 +142,19 @@ import Buttons from "./Buttons.astro";
   form input {
     color: var(--colour-base);
   }
+
   #name {
     text-decoration: underline;
     height: 24px;
     color: var(--colour-base-hover);
   }
+
   #titel {
     text-decoration: underline;
     height: 24px;
     color: var(--colour-base-hover);
   }
+
   #besked {
     text-decoration: underline;
     height: 347px;
@@ -157,11 +164,13 @@ import Buttons from "./Buttons.astro";
     border-radius: 20px;
     padding: 10px;
   }
+
   img {
     justify-self: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
   #button {
     justify-self: center;
   }
@@ -170,12 +179,15 @@ import Buttons from "./Buttons.astro";
     section {
       display: grid;
       grid-template-columns: 1fr;
+      border-radius: 30px 30px 30px 30px;
       width: 100%;
       height: 100%;
       background-image: url("/img/dukke_baggrund_form.jpg");
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center;
     }
+
     #image {
       height: 100%;
       width: 100%;
@@ -185,6 +197,7 @@ import Buttons from "./Buttons.astro";
       display: grid;
       grid-column: 1/2;
     }
+
     form {
       height: 100%;
       grid-column: 1/2;
@@ -196,24 +209,29 @@ import Buttons from "./Buttons.astro";
       width: 100%;
       padding: 0;
     }
+
     strong {
       color: var(--colour-text);
     }
+
     form label,
     form input {
       color: var(--colour-text);
       margin-left: 1rem;
     }
+
     #name,
     #titel {
       color: var(--colour-text-hover);
       margin-bottom: 1rem;
     }
+
     #besked {
       color: var(--colour-text-hover);
       border: solid var(--colour-text-hover) 2px;
       width: 100%;
     }
+
     #button {
       margin-bottom: 1rem;
     }
