@@ -3,7 +3,7 @@ import "../../style/styleCSS.css";
 import Header from "../../components/Header.astro";
 
 export async function getStaticPaths() {
-  const data = await fetch("https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials",{
+  const data = await fetch("https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials?accepted=eq.true",{
     method:"GET",
     headers:{
       apikey:

@@ -9,7 +9,7 @@ const {data} = Astro.props;
       <p class="review">{data.description}</p>
       <p class="name">- {data.name}</p>
       <!-- <div class="accepted">{data.accepted}</div> -->
-      <div class="fivestars"></div>
+      <div class="fivestars"><img src = {`../img/${data.stars}`} alt="Tilbage pil"></div>
    </div>
 </a>
 </div>
@@ -64,12 +64,13 @@ p{
     height: 100px;
     width: 50px;  
 } */
+
 .fivestars{
     height: 45px;
-    width: 100%;
-    background-image: url("../img/femstjerner.svg");
+    /* width: 100%; */
+    /* background-image: url("../img/femstjerner.svg");
     background-repeat: no-repeat;
-    width: 245px;
+    width: 245px; */
 }
 
 
