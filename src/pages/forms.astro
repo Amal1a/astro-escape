@@ -47,7 +47,7 @@ import "../style/styleCSS.css";
     }
     .back{
         display: flex;
-        align-self: center;
+        align-self: start;
         margin-bottom: 1rem;
    }
    .back p{
@@ -56,11 +56,14 @@ import "../style/styleCSS.css";
    .back img{
     width: 30%;
    }
-   @media (max-width: 600px) {
+   @media (max-width: 800px) {
     .formsection{
         width: 100%;
-margin-top: 2rem;
-margin-bottom: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .back{
+        align-self: center;
     }
    }
 </style>
