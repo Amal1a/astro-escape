@@ -1,11 +1,11 @@
 ---
-const { variant, link, leadto } = Astro.props;
+const { variant, link, leadto, type } = Astro.props;
 ---
 
 <!-- Indsæt variant prop - primary, secondary eller tertiary  -->
 <!-- Indsæt href ved brug af link prop  -->
 
-<button class={variant}>
+<button class={variant} type={type}>
     <a href={link} target={leadto}><slot /></a>
 </button>
 

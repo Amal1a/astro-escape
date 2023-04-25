@@ -19,14 +19,51 @@ import Buttons from "./Buttons.astro";
         <textarea name="besked" id="besked" placeholder="Skriv anmeldelse her..." cols="30" rows="5"></textarea>
       </label>
 
-      <img src="../../public/img/Stjerner.svg" alt="ratings">
+      <img src="../../img/Stjerner.svg" alt="ratings">
 
       <div id="button">
-      <Buttons variant="primary" link="" leadto="_self" >Send besked</Buttons>
+      <Buttons variant="primary" link="" leadto="_self" type="submit" >Send besked</Buttons>
       </div>
   </form>
 </section>
 </div>
+
+<script>
+    const headers={
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk",
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+        };
+    const url="https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials";
+
+    function addTestimonial(newTestimonial){
+        const options={
+            method:"POST",
+            headers:headers,
+            body:JSON.stringify(newTestimonial),
+        };
+    fetch(url, options).then((res)=>res.json()).then((data)=>{
+        console.log("data:",data);
+        window.location.href="/Testimonialfeedback";
+    })};
+
+const form = document.querySelector("form");
+console.log("form.elements",form.elements);
+
+form.addEventListener("submit",(e)=>{      
+    e.preventDefault();
+
+    const obj={
+        name:form.elements.name.value,
+        title: form.elements.titel.value,
+        description:form.elements.besked.value,
+    }
+
+addTestimonial(obj);
+
+});
+</script>
 
 <style>
 .formcenter{
