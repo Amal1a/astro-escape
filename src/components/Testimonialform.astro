@@ -1,130 +1,154 @@
 ---
 import Buttons from "./Buttons.astro";
 ---
+
 <div class="formcenter">
-<section>
-<!-- <img src="../../public/img/forms_dukke.webp" alt="creepy doll"> -->
-<div id="image">
-    <img src="/svg/LogoEscape.svg" alt="Royal Escape logo" id="logo">
-</div>
-<form>
-    <!-- Formular-indhold -->
+  <section>
+    <!-- <img src="../../public/img/forms_dukke.webp" alt="creepy doll"> -->
+    <div id="image">
+      <img src="/svg/LogoEscape.svg" alt="Royal Escape logo" id="logo" />
+    </div><form>
+      <!-- Formular-indhold -->
+
       <label for="yourname"><strong>Navn</strong></label>
-      <input id="name" placeholder="Fx Thomas Skeleton..." name="yourname" type="text" />
+      <input
+        id="name"
+        placeholder="Fx Thomas Skeleton..."
+        name="yourname"
+        type="text"
+      />
 
       <label for="titel"><strong>Titel</strong></label>
-      <input id="titel" placeholder="Skriv titel til oplevelsen..." name="titel" type="text" />
+      <input
+        id="titel"
+        placeholder="Skriv titel til oplevelsen..."
+        name="titel"
+        type="text"
+      />
 
       <label for="besked">
-        <textarea name="besked" id="besked" placeholder="Skriv anmeldelse her..." cols="30" rows="5"></textarea>
+        <textarea
+          name="besked"
+          id="besked"
+          placeholder="Skriv anmeldelse her..."
+          cols="30"
+          rows="5"></textarea>
       </label>
 
-      <img src="../../img/Stjerner.svg" alt="ratings">
+      <img src="../../img/Stjerner.svg" alt="ratings" />
 
       <div id="button">
-      <Buttons variant="primary" link="" leadto="_self" type="submit" >Send besked</Buttons>
+        <Buttons variant="primary" link="" leadto="_self" type="submit">
+          Send besked
+        </Buttons>
       </div>
-  </form>
-</section>
+    </form>
+  </section>
 </div>
 
 <script>
-    const headers={
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk",
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk",
-        "Content-Type": "application/json",
-        Prefer: "return=minimal",
-        };
-    const url="https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials";
+  const headers = {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqcXhia3h5ZWlsaWFoZmNhdm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE0NTc2MTgsImV4cCI6MTk5NzAzMzYxOH0.lRZslMI3go7rJxvuLYA38YV70GObp7hGW1_yiYqIQkk",
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+  };
+  const url =
+    "https://rjqxbkxyeiliahfcavoc.supabase.co/rest/v1/test_testimonials";
 
-    function addTestimonial(newTestimonial){
-        const options={
-            method:"POST",
-            headers:headers,
-            body:JSON.stringify(newTestimonial),
-        };
-    fetch(url, options).then((res)=>res.json()).then((data)=>{
-        console.log("data:",data);
-        window.location.href="/Testimonialfeedback";
-    })};
+  function addTestimonial(newTestimonial) {
+    const options = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(newTestimonial),
+    };
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data:", data);
+        window.location.href = "/Testimonialfeedback";
+      });
+  }
 
-const form = document.querySelector("form");
-console.log("form.elements",form.elements);
+  const form = document.querySelector("form");
+  console.log("form.elements", form.elements);
 
-form.addEventListener("submit",(e)=>{      
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const obj={
-        name:form.elements.name.value,
-        title: form.elements.titel.value,
-        description:form.elements.besked.value,
-    }
+    const obj = {
+      name: form.elements.name.value,
+      title: form.elements.titel.value,
+      description: form.elements.besked.value,
+    };
 
-addTestimonial(obj);
-
-});
+    addTestimonial(obj);
+  });
 </script>
 
 <style>
-.formcenter{
+  .formcenter {
     display: flex;
     justify-content: center;
-}
-section{
- display: grid;
- grid-template-columns: 1fr 1fr;
- /* width: 1148px; */
- width: 71.75rem;
- height: 95vh;
-}
+  }
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* width: 1148px; */
+    width: 71.75rem;
+    height: 95vh;
+  }
 
-/* img{
+  /* img{
  width: 100%;
  max-height: 100%;
  border-radius: 20px 0 0 20px;
 } */
 
-#image{
+  #image {
     background-image: url("/img/forms_dukke_3.webp");
     height: 100%;
     width: 100%;
     border-radius: 20px 0 0 20px;
     justify-self: center;
     display: grid;
-}
-#logo{
+  }
+  #logo {
     justify-self: center;
     align-self: end;
-}
-form{
-height: 100%;
- grid-column: 2/3;
- display: grid;
- grid-template-columns: 1fr;
- background-color: var(--colour-text);
- grid-template-rows: repeat(4, 1fr);
- border-radius: 0 20px 20px 0;
- width: 100%;
-padding: 4rem;
-}
-strong{
+  }
+  form {
+    height: 100%;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--colour-text);
+    grid-template-rows: repeat(4, 1fr);
+    border-radius: 0 20px 20px 0;
+    width: 100%;
+    padding: 4rem;
+  }
+  strong {
     color: var(--colour-base);
-}
+  }
 
-form label, form input{
+  form label,
+  form input {
     color: var(--colour-base);
-}
-#name{
+  }
+  #name {
     text-decoration: underline;
     height: 24px;
     color: var(--colour-base-hover);
-}
-#titel{
+  }
+  #titel {
     text-decoration: underline;
     height: 24px;
     color: var(--colour-base-hover);
-}
-#besked{
+  }
+  #besked {
     text-decoration: underline;
     height: 347px;
     width: 430px;
@@ -132,66 +156,66 @@ form label, form input{
     border: solid var(--colour-base-hover) 2px;
     border-radius: 20px;
     padding: 10px;
-}
-img{
+  }
+  img {
     justify-self: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-#button{
+  }
+  #button {
     justify-self: center;
-}
+  }
 
-@media (max-width: 800px) {
-section{
-display: grid;
-grid-template-columns: 1fr;
-width: 100%;
-height: 100%;
-background-image: url("/img/dukke_baggrund_form.jpg");
-background-repeat: no-repeat;
-background-size: cover;
-}
-#image{
-    height: 100%;
-width: 100%;
-border-radius: 0;
-background-image: none;
-justify-self: center;
-display: grid;
-grid-column: 1/2;
-}
-form{
-  height: 100%;
-  grid-column: 1/2;
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: transparent;
-  grid-template-rows: repeat(4,1fr);
-  border-radius: 0;
-  width: 100%;
-  padding: 0;
-}
-strong{
-    color: var(--colour-text);
-}
-form label, form input{
-    color: var(--colour-text);
-    margin-left: 1rem;
-}
-#name, #titel{
-    color: var(--colour-text-hover);
-    margin-bottom: 1rem;
-}
-#besked{
-    color: var(--colour-text-hover);
-    border: solid var(--colour-text-hover) 2px;
-    width: 100%;
-}
-#button{
-   margin-bottom: 1rem;
-}
-}
-
-
+  @media (max-width: 800px) {
+    section {
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+      height: 100%;
+      background-image: url("/img/dukke_baggrund_form.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #image {
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+      background-image: none;
+      justify-self: center;
+      display: grid;
+      grid-column: 1/2;
+    }
+    form {
+      height: 100%;
+      grid-column: 1/2;
+      display: grid;
+      grid-template-columns: 1fr;
+      background-color: transparent;
+      grid-template-rows: repeat(4, 1fr);
+      border-radius: 0;
+      width: 100%;
+      padding: 0;
+    }
+    strong {
+      color: var(--colour-text);
+    }
+    form label,
+    form input {
+      color: var(--colour-text);
+      margin-left: 1rem;
+    }
+    #name,
+    #titel {
+      color: var(--colour-text-hover);
+      margin-bottom: 1rem;
+    }
+    #besked {
+      color: var(--colour-text-hover);
+      border: solid var(--colour-text-hover) 2px;
+      width: 100%;
+    }
+    #button {
+      margin-bottom: 1rem;
+    }
+  }
 </style>
