@@ -40,7 +40,7 @@ const { myData } = Astro.props;
             <h2 class="titel">{myData.title}</h2>
             <p class="review">{myData.description}</p>
             <p class="name">- {myData.name}</p>
-            <div class="fivestars"></div>
+            <div class="fivestars"><img src = {`../img/${myData.stars}`} alt="Tilbage pil"></div>
         </div>
       </section>
     </main>
@@ -98,10 +98,6 @@ main{
 }
 .fivestars{
     height: 45px;
-    width: 100%;
-    background-image: url("../img/femstjerner.svg");
-    background-repeat: no-repeat;
-    width: 245px;
 }
 
 /* Mobileview */
