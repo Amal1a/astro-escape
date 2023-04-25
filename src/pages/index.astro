@@ -7,11 +7,6 @@ import Footer from "../components/Footer.astro";
 const { variant, link, leadto } = Astro.props;
 import "../style/styleCSS.css";
 import Testimonialsview from "../components/Testimonialsview.astro";
-
-
-
-
-
 ---
 
 <html lang="en">
@@ -27,10 +22,9 @@ import Testimonialsview from "../components/Testimonialsview.astro";
     <title>Playroom</title>
   </head>
   <body>
-    <Header />
-
     <!-- FrontPage [Gif Background Part]  -->
     <div class="FrontPage">
+      <Header />
       <div class="FrontPageContent">
         <div class="FrontPageLogo">
           <img class="FrontPageSVG" src="/svg/Playroom.svg" alt="" />
@@ -109,58 +103,60 @@ import Testimonialsview from "../components/Testimonialsview.astro";
     <!-- FrontVideo [Video Part]  -->
   </body>
   <script src="../js/carousel.js"></script>
-  </html>
+</html>
 
-  <style>
-    body {
-    }
+<style>
+  body {
+  }
 
-    .FrontPage {
-      height: 100vh;
-      background-image: url("PLACEHOLDER");
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 0;
-      margin: 0;
-    }
+  .FrontPage {
+    height: 100vh;
+    background-image: url("https://cdn.discordapp.com/attachments/1032766033188093974/1100326665084743680/dukker-hnger-loft-6.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+  }
 
-    .FrontPageContent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 2rem;
-    }
+  .FrontPageContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-    .FrontPageLogo {
-      padding: 2.5rem;
-    }
+  .FrontPageLogo {
+  }
 
-    .FrontVideoContent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 2rem;
-      margin: 2rem;
-    }
+  .FrontPageSVG {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
 
-    .FrontVideoBread {
-      max-width: 75rem;
-    }
+  .FrontVideoContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
+  }
 
-    .FrontTestContent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 2rem;
-      margin: 2rem;
-    }
+  .FrontVideoBread {
+    max-width: 70rem;
+  }
 
-    .FrontTestBread {
-      max-width: 75rem;
-    }
-  </style>
+  .FrontTestContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
+  }
 
-
+  .FrontTestBread {
+    max-width: 75rem;
+  }
+</style>
