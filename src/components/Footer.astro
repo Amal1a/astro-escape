@@ -10,13 +10,13 @@
       </div>
       <div class="FooterCards">
         <div class="FooterCard1">
-          <a href="/"><img src="../icons/fb_icon.svg" /></a>
+          <a href="/"><img class="MailSVG" src="../icons/Envelope.svg" /></a>
           <div class="MailCont">
             <p>info@royalescapes.dk</p>
           </div>
         </div>
         <div class="FooterCard2">
-          <a href="/"><img src="../icons/fb_icon.svg" /></a>
+          <a href="/"><img class="MapSVG" src="../icons/MapPin.svg" /></a>
           <div class="LocationCont">
             <p>Royal Escapes, København K, Fredericiagade 30, 1310 København</p>
           </div>
@@ -78,7 +78,7 @@
     width: 20rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -89,7 +89,7 @@
     gap: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
   .MailCont p {
@@ -106,5 +106,11 @@
     justify-content: center;
     text-align: center;
     font-size: 18px;
+  }
+
+  .MapSVG .MailSVG {
+    width: 2rem;
+    height: 2rem;
+    color: var(--colour-base);
   }
 </style>
