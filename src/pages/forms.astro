@@ -1,0 +1,59 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Testimonialform from "../components/Testimonialform.astro";
+import "../style/styleCSS.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis"
+      rel="stylesheet"
+    />
+    <title>Playroom</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="formsection">
+        <a class="back" href="/">
+            <img src="../../img/tilbage_arrow.svg" alt="Tilbage pil">
+            <p>Tilbage</p>
+        </a>
+        <Testimonialform/>
+      </section>
+    </main>
+    <Footer />
+  </body>
+  </html>
+
+
+<style>
+    main{
+        display: flex;
+        justify-content: center;
+    }
+    .formsection{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 71.75rem;
+        margin: 2rem;
+    }
+    .back{
+        display: flex;
+        align-self: start;
+        margin-bottom: 1rem;
+   }
+   .back p{
+    font-size: 1rem;
+   }
+   .back img{
+    width: 30%;
+   }
+</style>
