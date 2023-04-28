@@ -17,7 +17,7 @@ const data = await fetch(
 console.log(data);
 ---
 
-<section>
+<section class="centered">
   <div class="carousel">
     {
       data.map((testimonial) => {
@@ -45,8 +45,9 @@ console.log(data);
 
 <style>
   section {
-    display: grid;
+    display: flex;
     justify-content: center;
+    flex-direction: column;
   }
 
   /* .review{
@@ -56,10 +57,15 @@ console.log(data);
     text-overflow: ellipsis;
 } */
 
-  .ratings {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
+.centered {
+  align-items: center;
+}
+
+
+.ratings {
+    display: flex;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr; */
     margin-top: 2.5rem;
     max-width: 50rem;
   }
@@ -85,8 +91,9 @@ console.log(data);
 
   @media (max-width: 600px) {
     .ratings {
+      flex-direction: column;
       width: 100%;
-    }
+    }/*
     .tripadvisor {
       grid-column: 3/4;
       grid-row: 2/3;
@@ -99,5 +106,5 @@ console.log(data);
       grid-column: 2/3;
       grid-row: 1/2;
     }
-  }
+  }*/
 </style>
